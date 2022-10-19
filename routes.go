@@ -34,11 +34,6 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func CreateUser(w http.ResponseWriter, r *http.Request) {
-	err := TestAuth(w, r)
-	if err != nil {
-		w.WriteHeader(http.StatusUnauthorized)
-		return
-	}
 	w.Header().Set("Content-Type", "application/json")
 	var user models.User
 	json.NewDecoder(r.Body).Decode(&user)
